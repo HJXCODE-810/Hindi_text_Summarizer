@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>हिन्दी सारांश चैटबोट</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #e63946;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    input[type=file] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    button {
+      background: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #c1121f;
+    }
+    .flash-message {
+      padding: 10px;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+    }
+    .instructions {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 2rem;
+      border-left: 4px solid #e63946;
+    }
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 हिन्दी DOCX सारांशक</h1>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="flash-message">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="doc_file">अपना .docx फाइल चुनें:</label>
+        <input type="file" name="doc_file" id="doc_file" accept=".docx" required>
+      </div>
+      <button type="submit">सारांश जेनरेट करें</button>
+    </form>
+    
+    <div class="instructions">
+      <h3>निर्देश:</h3>
+      <ol>
+        <li>केवल .docx फाइल अपलोड करें</li>
+        <li>फाइल में हिंदी टेक्स्ट होना चाहिए</li>
+        <li>प्रोसेसिंग समय फाइल के आकार पर निर्भर करता है</li>
+        <li>सारांश जेनरेट होने के बाद, आप उसे डाउनलोड कर सकते हैं</li>
+      </ol>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 हिन्दी सारांश चैटबोट | Powered by mT5 Model
+  </footer>
+</body>
+</html>
