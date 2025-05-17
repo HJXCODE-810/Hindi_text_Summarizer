@@ -1,0 +1,10 @@
+flask
+transformers
+torch
+python-docx
+sentencepiece
+protobuf
+tqdm
+numpy
+sacremoses
+regex

@@ -1,0 +1,693 @@
+2025-05-17 10:10:23,649 - summarizer - INFO - Loading model from checkpoint: Jayveersinh-Raj/hindi-summarizer-small
+2025-05-17 10:13:52,583 - summarizer - INFO - CUDA is available. Using GPU acceleration.
+2025-05-17 10:13:54,578 - summarizer - INFO - Summarizer loaded successfully
+2025-05-17 10:13:55,370 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.130.125:5000
+2025-05-17 10:13:55,370 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 10:14:08,453 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 65, in home
+    return render_template('index.html')
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2025-05-17 10:14:08,617 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:14:08] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-17 10:14:08,663 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 65, in home
+    return render_template('index.html')
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-05-17 10:14:08,778 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2025-05-17 10:14:08,804 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:14:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-17 10:14:08,818 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-05-17 10:14:52,720 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 65, in home
+    return render_template('index.html')
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2025-05-17 10:14:52,726 - werkzeug - INFO - 172.16.130.125 - - [17/May/2025 10:14:52] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-17 10:14:52,733 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 65, in home
+    return render_template('index.html')
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-05-17 10:14:52,806 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2025-05-17 10:14:52,808 - werkzeug - INFO - 172.16.130.125 - - [17/May/2025 10:14:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-17 10:14:52,814 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-05-17 10:18:54,725 - summarizer - INFO - Loading model from checkpoint: Jayveersinh-Raj/hindi-summarizer-small
+2025-05-17 10:19:01,684 - summarizer - INFO - CUDA is available. Using GPU acceleration.
+2025-05-17 10:19:03,455 - summarizer - INFO - Summarizer loaded successfully
+2025-05-17 10:19:04,076 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.130.125:5000
+2025-05-17 10:19:04,076 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 10:19:30,949 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:19:30] "GET / HTTP/1.1" 200 -
+2025-05-17 10:19:31,375 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('/templates/404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/404.html
+2025-05-17 10:19:31,493 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:19:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-17 10:19:31,554 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('/templates/404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('/templates/500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/500.html
+2025-05-17 10:19:56,927 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:19:56] "GET / HTTP/1.1" 200 -
+2025-05-17 10:19:57,035 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/404.html
+2025-05-17 10:19:57,072 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:19:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-05-17 10:19:57,080 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 78, in page_not_found
+    return render_template('404.html'), 404
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\app.py", line 860, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "E:\Assignments\6TH SEM\NLP and Speech\UCS664 NLP\Project\app.py", line 82, in server_error
+    return render_template('500.html'), 500
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\anaconda3\envs\torch_cuda\lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /templates/500.html
+2025-05-17 10:21:26,771 - summarizer - INFO - Loading model from checkpoint: Jayveersinh-Raj/hindi-summarizer-small
+2025-05-17 10:21:31,647 - summarizer - INFO - CUDA is available. Using GPU acceleration.
+2025-05-17 10:21:33,248 - summarizer - INFO - Summarizer loaded successfully
+2025-05-17 10:21:33,723 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.130.125:5000
+2025-05-17 10:21:33,723 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 10:21:42,781 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:21:42] "GET / HTTP/1.1" 200 -
+2025-05-17 10:21:42,982 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:21:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-17 10:24:45,129 - summarizer - INFO - Summarizing text of length 352 words
+2025-05-17 10:24:52,356 - summarizer - INFO - Generated summary of length 23 words
+2025-05-17 10:24:52,500 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:24:52] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-05-17 10:24:52,720 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:24:52] "GET /download/summary_input.docx HTTP/1.1" 200 -
+2025-05-17 10:34:37,221 - summarizer - INFO - Loading model from checkpoint: Jayveersinh-Raj/hindi-summarizer-small
+2025-05-17 10:34:43,330 - summarizer - INFO - CUDA is available. Using GPU acceleration.
+2025-05-17 10:34:44,962 - summarizer - INFO - Summarizer loaded successfully
+2025-05-17 10:34:45,699 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.130.125:5000
+2025-05-17 10:34:45,699 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 10:36:03,310 - summarizer - INFO - Summarizing text of length 352 words
+2025-05-17 10:36:10,882 - summarizer - INFO - Generated summary of length 23 words
+2025-05-17 10:36:11,027 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:36:11] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-05-17 10:36:11,244 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:36:11] "GET /download/summary_input.docx HTTP/1.1" 200 -
+2025-05-17 10:40:09,363 - summarizer - INFO - Loading model from checkpoint: Jayveersinh-Raj/hindi-summarizer-small
+2025-05-17 10:40:15,071 - summarizer - INFO - CUDA is available. Using GPU acceleration.
+2025-05-17 10:40:16,452 - summarizer - INFO - Summarizer loaded successfully
+2025-05-17 10:40:16,899 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.130.125:5000
+2025-05-17 10:40:16,899 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-17 10:40:31,901 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:40:31] "GET / HTTP/1.1" 200 -
+2025-05-17 10:40:37,201 - summarizer - INFO - Summarizing text of length 352 words
+2025-05-17 10:40:44,136 - summarizer - INFO - Generated summary of length 23 words
+2025-05-17 10:40:44,268 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:40:44] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-05-17 10:40:44,533 - werkzeug - INFO - 127.0.0.1 - - [17/May/2025 10:40:44] "GET /download/summary_input.docx HTTP/1.1" 200 -
