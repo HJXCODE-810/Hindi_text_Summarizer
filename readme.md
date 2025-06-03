@@ -36,7 +36,7 @@ A Flask-based web application that accepts `.docx` files containing Hindi text, 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/hindi-summarizer-chatbot.git
+   git clone https://github.com/HJXCODE-810/hindi-summarizer-chatbot.git
    cd hindi-summarizer-chatbot
    ```
 
