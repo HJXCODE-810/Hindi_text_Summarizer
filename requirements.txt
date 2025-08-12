@@ -10,3 +10,4 @@ sacremoses
 regex
 fastapi
 uvicorn
+jinja2
