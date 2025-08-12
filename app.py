@@ -1,107 +1,86 @@
-import os
-from fastapi import FastAPI, Request, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from docx import Document
+import os
+import uuid
+from pathlib import Path
 from summarizer import summarize_hindi
 
-app = FastAPI()
+app = FastAPI(title="Hindi Document Summarizer")
 
-# Config
+# Configure directories
 UPLOAD_FOLDER = "uploads"
 SUMMARY_FOLDER = "summaries"
-SECRET_KEY = "hindi_summarizer_secret_key"
+Path(UPLOAD_FOLDER).mkdir(exist_ok=True)
+Path(SUMMARY_FOLDER).mkdir(exist_ok=True)
 
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-os.makedirs(SUMMARY_FOLDER, exist_ok=True)
-
-# Serve static & templates (same as Flask render_template)
+# Setup templates
 templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "flash": None})
+    return templates.TemplateResponse("index.html", {"request": request})
 
-
-@app.post("/", response_class=HTMLResponse)
-async def upload_file(request: Request, doc_file: UploadFile = File(...)):
-    # Check file
-    if not doc_file.filename.endswith(".docx"):
-        return templates.TemplateResponse(
-            "index.html",
-            {"request": request, "flash": "Please upload a valid .docx file"}
-        )
-
+@app.post("/upload/")
+async def upload_file(file: UploadFile = File(...)):
+    # Validate file type
+    if not file.filename.lower().endswith('.docx'):
+        raise HTTPException(status_code=400, detail="Please upload a valid .docx file")
+    
     try:
+        # Generate unique filename
+        file_id = str(uuid.uuid4())
+        upload_path = os.path.join(UPLOAD_FOLDER, f"{file_id}.docx")
+        summary_filename = f"summary_{file.filename}"
+        summary_path = os.path.join(SUMMARY_FOLDER, summary_filename)
+        
         # Save uploaded file
-        filepath = os.path.join(UPLOAD_FOLDER, doc_file.filename)
-        with open(filepath, "wb") as f:
-            f.write(await doc_file.read())
+        with open(upload_path, "wb") as buffer:
+            buffer.write(await file.read())
 
-        # Read DOCX
-        doc = Document(filepath)
-        full_text = "\n".join([para.text for para in doc.paragraphs if para.text])
+        # Read DOCX content
+        doc = Document(upload_path)
+        full_text = '\n'.join([para.text for para in doc.paragraphs if para.text])
 
         if not full_text.strip():
-            return templates.TemplateResponse(
-                "index.html",
-                {"request": request, "flash": "The uploaded document appears to be empty"}
-            )
+            raise HTTPException(status_code=400, detail="The uploaded document appears to be empty")
 
         # Summarize
         summary_text = summarize_hindi(full_text)
 
-        # Write summary DOCX
+        # Write summary to new DOCX
         summary_doc = Document()
-        heading = summary_doc.add_heading("", level=1)
-        heading_run = heading.add_run("सारांश")
-        heading_run.font.name = "Nirmala UI"
-
-        for line in summary_text.split("\n"):
+        heading = summary_doc.add_heading('', level=1)
+        heading_run = heading.add_run('सारांश')
+        heading_run.font.name = 'Nirmala UI'
+        
+        for line in summary_text.split('\n'):
             if line.strip():
-                para = summary_doc.add_paragraph("")
+                para = summary_doc.add_paragraph('')
                 run = para.add_run(line)
-                run.font.name = "Nirmala UI"
-
-        summary_filename = f"summary_{doc_file.filename}"
-        summary_path = os.path.join(SUMMARY_FOLDER, summary_filename)
+                run.font.name = 'Nirmala UI'
+        
         summary_doc.save(summary_path)
 
         return RedirectResponse(url=f"/download/{summary_filename}", status_code=303)
-
+    
     except Exception as e:
-        return templates.TemplateResponse(
-            "index.html",
-            {"request": request, "flash": f"Error processing file: {str(e)}"}
-        )
-
+        raise HTTPException(status_code=500, detail=f"Error processing file: {str(e)}")
 
 @app.get("/download/{filename}")
 async def download_summary(filename: str):
     path = os.path.join(SUMMARY_FOLDER, filename)
     if os.path.exists(path):
-        return FileResponse(
-            path,
-            media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            filename=filename
-        )
-    raise HTTPException(status_code=404, detail="Summary file not found")
-
+        return FileResponse(path, filename=filename)
+    else:
+        raise HTTPException(status_code=404, detail="Summary file not found")
 
 @app.exception_handler(404)
-async def custom_404_handler(request: Request, exc):
+async def not_found_exception_handler(request: Request, exc: HTTPException):
     return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
 
-
 @app.exception_handler(500)
-async def custom_500_handler(request: Request, exc):
+async def server_error_exception_handler(request: Request, exc: HTTPException):
     return templates.TemplateResponse("500.html", {"request": request}, status_code=500)
-
-
-# For local run
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=5000)
