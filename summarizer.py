@@ -63,7 +63,7 @@ def summarize_hindi(text: str, min_length: int = 32, max_length: int = 128) -> s
     """
     if summarizer is None:
         logger.error("Summarizer not initialized")
-        return "Error: Summarizer not initialized."
+        raise RuntimeError("Summarizer not initialized")
         
     if not text.strip():
         logger.warning("Empty text provided for summarization")
@@ -73,11 +73,6 @@ def summarize_hindi(text: str, min_length: int = 32, max_length: int = 128) -> s
         # Ensure task prefix for this checkpoint
         if not text.strip().startswith("<sum>"):
             text = "<sum> " + text.strip()
-            
-        # Handle long text by chunking if needed
-        if len(text.split()) > 1024:
-            logger.info("Long text detected. Processing in chunks.")
-            # Implementation for chunking could be added here
             
         logger.info(f"Summarizing text of length {len(text.split())} words")
         
@@ -94,4 +89,4 @@ def summarize_hindi(text: str, min_length: int = 32, max_length: int = 128) -> s
         
     except Exception as e:
         logger.error(f"Error during summarization: {str(e)}")
-        return f"Error during summarization: {str(e)}"
+        raise RuntimeError(f"Error during summarization: {str(e)}")
